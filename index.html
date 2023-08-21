@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head style="color: darkslategrey;">
         <title>Page Title</title>
     </head>
 
-    <body>
-        <h1 style="color:aqua;text-align: center;">St_vn's domain fr fr</h1>
-        <p>Baow.</p>
+    <body style="color: black;">
+        <h1 style="color:white;text-align: center;">St_vn's domain fr fr</h1>
+        <p style="color: white;">Guessing game :</p>
     </body>
 
     <div class="resultParas">
@@ -56,7 +56,7 @@
             resetButton = document.createElement("button");
             resetButton.textContent = "Restart, bozo";
             document.body.append(resetButton);
-            resetButton.addEventListener("click", resetGame);
+            resetButton.addEventListener("click", restart);
         }
 
         function checkGuess() {
