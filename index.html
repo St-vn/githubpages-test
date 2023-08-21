@@ -6,7 +6,7 @@
 
     <body>
         <h1 style="color:aqua;text-align: center;">St_vn's domain fr fr</h1>
-        <p>Young pablo with the go, and i have to let you know.</p>
+        <p>Baow.</p>
     </body>
 
     <div class="resultParas">
@@ -16,11 +16,13 @@
     </div>
 
     <label for="guessField">Enter a guess: </label>
-    <input type="number" id="guessField" class="guessField" />
-    <input type="submit" value="Submit guess" class="guessSubmit" />
+    <input type="string" id="guessField" class="guessField"/>
+    <input type="submit" value="Submit guess" class="guessSubmit"/>
 
     <script>
-        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let names = ["Steven", "Oldi"];
+        let index = Math.floor(Math.random() * names.length);
+        let randomName = names[index]
 
         const guesses = document.querySelector(".guesses");
         const lastResult = document.querySelector(".lastResult");
@@ -33,7 +35,17 @@
         let resetButton;
 
         function checkGuess() {
-            const userGuess = Number(guessField.value);
+            const userGuess = guessField.value;
+
+            if (userGuess.toLowerCase() === randomName.toLowerCase()) {
+                lastResult.textContent = `You guessed right, it was ${userGuess}!`
+
+                return
+                // guessSubmit.remove()
+            }
+            else if (guessCount > 2) {
+                lastResult.textContent = `You have massive skill issues, the answer was ${userGuess}!`
+            }
 
             lastResult.textContent = `Guess : ${userGuess}`;
 
@@ -43,7 +55,5 @@
         }
 
         guessSubmit.addEventListener("click", checkGuess);
-
-        // checkGuess();
     </script>
 </html>
