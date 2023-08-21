@@ -20,7 +20,7 @@
     <input type="submit" value="Submit guess" class="guessSubmit"/>
 
     <script>
-        let names = ["Steven", "Oldi"];
+        let names = ["Steven", "Oldi", "Manith", ""];
         let index = Math.floor(Math.random() * names.length);
         let randomName = names[index]
 
@@ -34,17 +34,46 @@
         let guessCount = 1;
         let resetButton;
 
+        function restart() {
+            guessCount = 1;
+
+            guessField.disabled = false;
+            guessSubmit.disabled = false;
+            guessField.value = "";
+            guessField.focus();
+
+            resetButton.parentNode.removeChild(resetButton);
+            lastResult.style.backgroundColor = "white";
+            
+            index = Math.floor(Math.random() * names.length);
+            randomName = names[index]
+        }
+
+        function endGame() { // avengers
+            guessSubmit.disabled = true;
+            guessField.disabled = true;
+
+            resetButton = document.createElement("button");
+            resetButton.textContent = "Restart, bozo";
+            document.body.append(resetButton);
+            resetButton.addEventListener("click", resetGame);
+        }
+
         function checkGuess() {
             const userGuess = guessField.value;
 
             if (userGuess.toLowerCase() === randomName.toLowerCase()) {
-                lastResult.textContent = `You guessed right, it was ${userGuess}!`
+                lastResult.textContent = `You guessed right, it was ${randomName}!`;
+                endGame();
 
-                return
+                return;
                 // guessSubmit.remove()
             }
             else if (guessCount > 2) {
-                lastResult.textContent = `You have massive skill issues, the answer was ${userGuess}!`
+                lastResult.textContent = `You have massive skill issues, the answer was ${randomName}!`;
+                endGame();
+
+                return;
             }
 
             lastResult.textContent = `Guess : ${userGuess}`;
