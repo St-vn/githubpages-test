@@ -20,7 +20,7 @@
     <input type="submit" value="Submit guess" class="guessSubmit"/>
 
     <script>
-        let names = ["Steven", "Oldi", "Manith", ""];
+        let names = ["Steven", "Manith", "Ye", "Kanye", "Shirou"];
         let index = Math.floor(Math.random() * names.length);
         let randomName = names[index]
 
@@ -53,6 +53,7 @@
             guessSubmit.disabled = true;
             guessField.disabled = true;
 
+            lastResult.disabled = true
             resetButton = document.createElement("button");
             resetButton.textContent = "Restart, bozo";
             document.body.append(resetButton);
