@@ -25,12 +25,12 @@
             [
                 "Artoria Pendragon",
                 ["Artoria Pendragon", "Altria Pendragon", "Artoria", "Altria", "Saber", "King Of Knights"],
-                "https://static.wikia.nocookie.net/fategrandorder/images/b/be/S002_Stage4.webp/revision/latest?cb=20220910072159"
+                "https://static.wikia.nocookie.net/fategrandorder/images/b/be/S002_Stage4.webp"
             ],
             [
                 "EMIYA",
                 ["EMIYA", "Emiya Shirou", "Shirou", "Shirou Emiya", "Nameless", "Faker", "Hero Of Justice", "Red Archer"],
-                "https://static.wikia.nocookie.net/fategrandorder/images/6/60/S011_Stage4.webp/revision/latest?cb=20220910075607"
+                "https://static.wikia.nocookie.net/fategrandorder/images/6/60/S011_Stage4.webp"
             ]
         ];
 
@@ -50,7 +50,7 @@
         let resetButton;
 
         function validateName(inputName) {
-            for (const characterName in characterInfo[1]) {
+            for (const characterName of characterInfo[1]) {
                 if (characterName.toLowerCase() === inputName.toLowerCase()) {
                     return true;
                 }
@@ -91,6 +91,10 @@
 
         function checkGuess() {
             const userGuess = guessField.value;
+
+            if (userGuess === "") {
+                return;
+            }
 
             if (validateName(userGuess)) {
                 lastResult.textContent = `You guessed right, it was ${characterName}!`;
