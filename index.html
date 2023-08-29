@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head style="color: darkslategrey;">
-        <title>Page Title</title>
+        <title style="color: black; text-align: center;">Fate character guessing game</title>
     </head>
 
     <body style="color: black;">
-        <h1 text-align: center;">St_vn's domain fr fr</h1>
-        <p>Guess the name :</p>
+        <h1 text-align: left;">Guess the fate servant!</h1>
+        <p>Guess the characters' name(s) or alias(es) :</p>
     </body>
 
     <div class="resultParas">
         <p class="guesses"></p>
         <p class="lastResult"></p>
         <p class="lowOrHi"></p>
+        <img class="servantImage">
     </div>
 
     <label for="guessField">Enter a guess: </label>
@@ -20,23 +21,52 @@
     <input type="submit" value="Submit guess" class="guessSubmit"/>
 
     <script>
-        let names = ["Steven", "Anna", "Ye", "Kanye", "Shirou"];
-        let index = Math.floor(Math.random() * names.length);
-        let randomName = names[index]
+        let characters = [
+            [
+                "Artoria Pendragon",
+                ["Artoria Pendragon", "Altria Pendragon", "Artoria", "Altria", "Saber", "King Of Knights"],
+                "https://static.wikia.nocookie.net/fategrandorder/images/b/be/S002_Stage4.webp/revision/latest?cb=20220910072159"
+            ],
+            [
+                "EMIYA",
+                ["EMIYA", "Emiya Shirou", "Shirou", "Shirou Emiya", "Nameless", "Faker", "Hero Of Justice", "Red Archer"],
+                "https://static.wikia.nocookie.net/fategrandorder/images/6/60/S011_Stage4.webp/revision/latest?cb=20220910075607"
+            ]
+        ];
 
         const guesses = document.querySelector(".guesses");
         const lastResult = document.querySelector(".lastResult");
         const lowOrHi = document.querySelector(".lowOrHi");
+        const servantImage = document.querySelector(".servantImage")
 
         const guessSubmit = document.querySelector(".guessSubmit");
         const guessField = document.querySelector(".guessField");
 
-        let guessCount = 1;
+        let index;
+        let characterInfo;
+        let characterName;
+
+        let guessCount;
         let resetButton;
 
-        function restart() {
-            guessCount = 1;
+        function validateName(inputName) {
+            for (const characterName in characterInfo[1]) {
+                if (characterName.toLowerCase() === inputName.toLowerCase()) {
+                    return true;
+                }
+            }
+        }
 
+        function newGame() {
+            index = Math.floor(Math.random() * characters.length);
+            characterInfo = characters[index];
+            characterName = characterInfo[0];
+            servantImage.src = characterInfo[2];
+
+            guessCount = 1;
+        }
+
+        function restart() {
             guessField.disabled = false;
             guessSubmit.disabled = false;
             guessField.value = "";
@@ -45,15 +75,14 @@
             resetButton.parentNode.removeChild(resetButton);
             lastResult.style.backgroundColor = "white";
             
-            index = Math.floor(Math.random() * names.length);
-            randomName = names[index]
+            newGame();
         }
 
         function endGame() { // avengers
             guessSubmit.disabled = true;
             guessField.disabled = true;
 
-            lastResult.disabled = true
+            lastResult.disabled = true;
             resetButton = document.createElement("button");
             resetButton.textContent = "Restart, bozo";
             document.body.append(resetButton);
@@ -63,21 +92,20 @@
         function checkGuess() {
             const userGuess = guessField.value;
 
-            if (userGuess.toLowerCase() === randomName.toLowerCase()) {
-                lastResult.textContent = `You guessed right, it was ${randomName}!`;
+            if (validateName(userGuess)) {
+                lastResult.textContent = `You guessed right, it was ${characterName}!`;
                 endGame();
 
                 return;
-                // guessSubmit.remove()
             }
             else if (guessCount > 2) {
-                lastResult.textContent = `You have massive skill issues, the answer was ${randomName}!`;
+                lastResult.textContent = `You have massive skill issues, the answer was ${characterName}!`;
                 endGame();
 
                 return;
             }
 
-            lastResult.textContent = `Guess : ${userGuess}`;
+            lastResult.textContent = `Guess : ${userGuess} (${3 - guessCount} left)`;
 
             guessCount++;
             guessField.value = "";
@@ -85,5 +113,6 @@
         }
 
         guessSubmit.addEventListener("click", checkGuess);
+        newGame();
     </script>
 </html>
