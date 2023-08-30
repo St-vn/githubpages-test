@@ -10,7 +10,7 @@
     </body>
 
     <div class="resultParas">
-        <p class="guesses"></p>
+        <p class="guesses"></p>X
         <p class="lastResult"></p>
         <p class="lowOrHi"></p>
         <img class="servantImage">
@@ -56,7 +56,7 @@
                 "Arash",
                 ["Arash", "Arash Kamangir"],
                 "https://static.wikia.nocookie.net/fategrandorder/images/8/80/S016_Stage1.webp"
-            ]
+            ],
             [
                 "Heracles",
                 ["Heracles", "Herc", "Hercules"],
@@ -81,7 +81,7 @@
                 "Jaguar Man",
                 ["Jaguar Man", "Taiga", "Fujimura Taiga"],
                 "https://static.wikia.nocookie.net/fategrandorder/images/8/88/S148_Stage1.webp"
-            ]
+            ],
             [
                 "Medusa",
                 ["Medusa", "Gorgon"],
@@ -128,7 +128,7 @@
                 "https://static.wikia.nocookie.net/fategrandorder/images/1/18/S039_Stage1.webp"
             ],
             [
-                "Cursed Arm Hassan"
+                "Cursed Arm Hassan",
                 ["Cursed Arm Hassan", "Hassan of the Cursed Arm", "True Assassin", "Hanam", "Assassin of the White Skull"],
                 "https://static.wikia.nocookie.net/fategrandorder/images/b/bf/S040_Stage1.webp"
             ],
@@ -138,10 +138,55 @@
                 "https://static.wikia.nocookie.net/fategrandorder/images/8/80/S092_Stage1.webp"
             ],
             [
-                "EMIYA (Assassin)"
+                "EMIYA (Assassin)",
                 ["EMIYA (Asssasin)", "Emiya Kiritsugu", "Kiritsugu", "Magus Killer"],
                 "https://static.wikia.nocookie.net/fategrandorder/images/b/b1/S109_Stage3.webp"
-            ]
+            ],
+            [
+                "Mash Kyrielight",
+                ["Mashu", "Mash", "Mash Kyrielight", "Mashu Kirielite", "Galahad", "Sir Galahad", "Fairy Knight Galahad"],
+                "https://static.wikia.nocookie.net/fategrandorder/images/b/b5/S001_Stage4.webp"
+            ],
+            [
+                "Frankenstein",
+                ["Frankenstein", "Fran", "Berserker of Black", "Innocent Bride"],
+                "https://static.wikia.nocookie.net/fategrandorder/images/5/5d/S082_Stage1.webp"
+            ],
+            [
+                "Florence Nightingale",
+                ["Florence Nightingale", "Nightinggale", "Florence", "Mercedes", "Angel of Crimea"],
+                "https://static.wikia.nocookie.net/fategrandorder/images/4/4c/S097_Stage1.webp"
+            ],
+            [
+                "Jeanne d'Arc",
+                ["Jeanne d'Arc", "Joan of Arc", "Joan", "Jeanne", "St Joan", "Maiden of Orleans"],
+                "https://static.wikia.nocookie.net/fategrandorder/images/b/b2/S059_Stage2.webp"
+            ],
+            [
+                "Amakusa Shirou",
+                ["Amakusa Shirō", "Amakusa Shirou", "Shirou Kotomine", "Shirō Kotomine"],
+                "https://static.wikia.nocookie.net/fategrandorder/images/2/2a/S093_Stage2.webp",
+            ],
+            [
+                "Edmond Dantes",
+                ["Edmond Dantes", "Edmond Dantès", "The Count of Monte Cristo"],
+                "https://static.wikia.nocookie.net/fategrandorder/images/f/fb/S096_Stage3.webp"
+            ],
+            [
+                "Jeanne d'Arc (Alter)",
+                ["Jeanne d'Arc (Alter)", "Jalter", "Dragon Witch", "Witch of Vengeance", "Jeanne Alter", "Joan Alter"],
+                "https://static.wikia.nocookie.net/fategrandorder/images/1/11/S106_Stage2.webp"
+            ],
+            [
+                "Angra Mainyu",
+                ["Angra Mainyu", "Angra", "King of Daemons"],
+                "https://static.wikia.nocookie.net/fategrandorder/images/7/7f/S107_Stage2.webp"
+            ],
+            [
+                "Mysterious Heroine XX",
+                ["Mysterious Heroine XX", "MHXX", "Mysterious Heroine X (Foreigner)", "Space Cop", "Space Saber"],
+                "https://static.wikia.nocookie.net/fategrandorder/images/9/92/S222_Stage4.webp",
+            ],
         ];
 
         const guesses = document.querySelector(".guesses");
@@ -172,6 +217,7 @@
             characterInfo = characters[index];
             characterName = characterInfo[0];
             servantImage.src = characterInfo[2];
+            //servantImage.alt = characterName
 
             guessCount = 1;
         }
