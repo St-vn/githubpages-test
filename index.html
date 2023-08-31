@@ -245,7 +245,7 @@
             lastResult.disabled = true;
             resetButton = document.createElement("button");
             resetButton.textContent = "Restart, bozo";
-            document.body.after(resetButton, guessSubmit);
+            document.body.after(guessSubmit, resetButton);
             resetButton.addEventListener("click", restart);
         }
 
