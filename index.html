@@ -256,7 +256,7 @@
                 return;
             }
 
-            if (validateName(userGuess).trim()) {
+            if (validateName(userGuess.trim())) {
                 lastResult.textContent = `You guessed right, it was ${characterName}!`;
                 endGame();
 
