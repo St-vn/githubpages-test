@@ -18,7 +18,7 @@
     </div>
 
     <label for="guessField"> <b>Enter a guess: </b></label>
-    <input type="string" id="guessField" class="guessField" style="background-color: rgb(53, 53, 53); color: rgb(255, 255, 255);"/>
+    <input type="string" id="guessField" class="guessField" style="background-color: rgb(36, 36, 36); color: rgb(255, 255, 255);"/>
     <input type="submit" value="Submit guess" class="guessSubmit"/>
 
     <footer style="background-color:rgb(36, 36, 36); border-top: solid rgb(150, 150, 150); color: rgb(75, 75, 75); text-align: center; align-items: center; font-family: Arial, Helvetica, sans-serif; display:flex ; position: fixed; height: 350px; width: 110%; bottom: 0; left: 0">
@@ -234,7 +234,7 @@
             guessField.focus();
 
             resetButton.parentNode.removeChild(resetButton);
-            lastResult.style.backgroundColor = "white";
+            // lastResult.style.backgroundColor = "white";
             
             newGame();
         }
