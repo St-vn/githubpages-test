@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <head style="background-color:rgb(36, 36, 36);">
+    <head>
         <title>Fate character guessing game</title>
-        <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif; color: white;">Guess the fate servant!</h1>
     </head>
+
+    <header style="background-color:rgb(36, 36, 36);">
+        <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif; color: white;">Guess the fate servant!</h1>
+    </header>
 
     <body style="background-color:rgb(53, 53, 53); font-family: Arial, Helvetica, sans-serif; color: white">
         <h2>Guess the characters' name(s) or alias(es) :</h2>
@@ -16,7 +19,7 @@
         <img class="servantImage">
     </div>
 
-    <label for="guessField">Enter a guess: </label>
+    <label for="guessField"> <b>Enter a guess: </b></label>
     <input type="string" id="guessField" class="guessField"/>
     <input type="submit" value="Submit guess" class="guessSubmit"/>
 
